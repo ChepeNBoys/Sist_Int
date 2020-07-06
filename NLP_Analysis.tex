@@ -13,17 +13,22 @@
 
 \begin{document}
     \maketitle
-    \begin{abstract}
-        En el siguiente trabajo se realiza una revisión de algunos de los métodos que se han usado históricamente para resolver el problema de la 
-        traducción automática. Los métodos seleccionados fueron la traducción basada en reglas, basada en ejemplos y basada en redes neuronales.
-        Para cada método se presenta una pequeña introducción histórica, un análisis de como funciona y aplicaciones destacadas. Finalmente se presentan 
-        algunas conclusiones acerca de lo encontrado en la literatura durante la investigación de estos métodos.
-
-    \end{abstract}
     \begin{multicols}{2}
         \section{Introducción}
-            La traducción automática se refiere al uso de computadores para realizar traducciones
-            de un lenguaje SL (\textit{Source Language}) a un lenguaje TL (\textit{Target Language}).
+            La traducción automática se refiere al uso de computadores para realizar traducciones de un lenguaje SL (\textit{Source Language}) 
+            a un lenguaje TL (\textit{Target Language}). Los origenes de esta area del conocimiento se remontan a los años 30, con los trabajos
+            de Georges Artsrouni and Petr Trojanskij, en los que patentaron sistemas que podrían ser usados como traductores \cite{HUTCHINS1995431}.
+            Luego, durante los años 40, con la creación de los primeros computadores, se consideró el uso de estos como traductores, lo cual concluyo
+            en lo que se conoce hoy como el experimento de Georgetown\cite{Georgetown}, en el que fue posible traducir mas de 60 oraciones del Ruso
+            al Ingles, lo que genero altas expectativas dentro de la comunidad cientifica y en el gobierno americano, por su posible uso en la guerra
+            fria.
+
+            Hoy en día, el uso de software que usa traducción automatica esta ampliamente extendido en la población no solo cientifica, sino en general.
+            Un ejemplo claro de este es el traductor de Google.
+ 
+            En el siguiente trabajo se realiza una revisión de algunos de los métodos que se han usado históricamente para resolver el problema de la 
+            traducción automática. Los métodos seleccionados fueron la traducción basada en reglas, basada en ejemplos y basada en redes neuronales.
+            Para cada método se presenta una pequeña introducción histórica, un análisis de como funciona y aplicaciones destacadas.
         \section{Métodos}
             \subsection{Reglas}
                 Los sistemas basados en reglas constituyen los primeros intentos usados para la creación
@@ -92,8 +97,26 @@
                 \href{http://cunei.sourceforge.net/}{Cunei} y \href{http://www.cs.cmu.edu/~ralf/ebmt/ebmt.html}{CMU-EBMT} son probablemente de los sistemas basados en ejemplos
                 mas reconocidos.
             \subsection{Redes neuronales}
-                Los fundamentos matematicos de las redes neuronales...
+                Los sistemas basados en redes neuronales usan metodos de aprendizaje profundo para intentar obtener la traducción de SL a TL. Si bien las bases matematicas de
+                las redes neuronales se conocen desde finales del siglo XX no fue sino hasta después del año 2013, influenciados principalmente por el trabajo de \textit{Kaichbrenner et al.} \cite{Kalchbrenner},
+                que estas empezaron a ser ampliamente estudiadas para su use en el campo de la traducción automática.
+                
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.4\textwidth]{encoder_decoder.png}
+                    \caption[]{Arquitectura propuesta simulataneamente por \textit{Cho et al.}\cite{Cho} y \textit{Sutskever et al.}\cite{Sutskever}. Tomada de \cite{Cho}}
+                    \label{enconder_decoder}
+                \end{figure}
+                
+                El metodo propuesto por \textit{Kaichbrenner et al.} consiste en el uso de dos redes neuronales, llamadas codificadora y decodificadora, que a partir 
+                de un conjunto de datos de entrenamiento (Similar a la base de datos que se usaba en los sistemas basados en ejemplos) pueden ser usadas para traducir 
+                de SL a TL. La red codificadora se encarga de transformar el texto entrada, en SL, a una representación en un espacio vectorial. Este vector resultanto 
+                es luego alimentado a la red decodificadora, y esta lo transforma a la traducción en TL. En el trabajo de Kaichbrenner la red neuronal codificadora era una
+                red convolucional y la decodificadora un red recurrente, pero con el paso de los años se han hecho modificaciones al sistema original propuesto por
+                Kaichbrenner \cite{Cho} \cite{Sutskever} (Ver \ref{enconder_decoder}). Muchas de las grandes compañias de software internacional como Google, Facebook y
+                Amazon usan este tipo de sistemas dentro de sus productos .
 
+                
             \bibliographystyle{unsrt}
             \bibliography{references}
     \end{multicols}
